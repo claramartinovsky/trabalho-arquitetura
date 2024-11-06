@@ -30,7 +30,7 @@ public class Main {
 
                 {"BEQ", "R1", "R2", "6"}, // Se R1 == R2, salta para a instrução na posição 6
 
-
+                {"JMP", "7"},
         };
 
 

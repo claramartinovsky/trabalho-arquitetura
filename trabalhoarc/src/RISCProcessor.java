@@ -72,6 +72,15 @@ public class RISCProcessor {
     }
 
 
+
+    public void jmp(int address) {
+
+        pc = address;
+
+    }
+
+
+
     public void beq(int regIndex1, int regIndex2, int address) {
 
         if (registers.get(regIndex1) == registers.get(regIndex2)) {
@@ -126,6 +135,11 @@ public class RISCProcessor {
 
                     break;
 
+               case "JMP":
+
+                    jmp(Integer.parseInt(instruction[1]));
+
+                    break;
 
                 case "BEQ":
 
@@ -145,6 +159,7 @@ public class RISCProcessor {
 
             // Exibe o estado atual do processador 
 
+            //System.out.println("PC: " + pc + ", Registers: " + Arrays.toString(registers.getRegistersSnapshot()) + ", Memory: " + Arrays.toString(memory.getMemorySnapshot(105)));
             System.out.println("PC: " + pc + ", Registers: " + Arrays.toString(registers.getRegistersSnapshot()) + ", Memory: [100: " + memory.get(100) + ", 101: " + memory.get(101) + ", 102: " + memory.get(102) + "]");
     }
 
